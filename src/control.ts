@@ -43,7 +43,7 @@ script.on_event(defines.events.on_lua_shortcut, data => {
     hideBelowContainer.add({type:"label", caption:"Minimum quantity"});
     const p = hideBelowContainer.add({type:"textfield", numeric: true, text: playerInfo.HideBelowCount.toString(), name:"hideBelowCount", caption:"Hide below"})
     p.style.width = 36
-    const table = mainFrame.add({type:"table", name:"buttonsTable", column_count:qualities.length, style:"filter_slot_table"})
+    const table = mainFrame.add({type:"table", name:"buttonsTable", column_count:5, style:"filter_slot_table"})
 
     for (const item of items)
     {

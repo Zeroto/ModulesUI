@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.2
+  Fix:
+    - make column count fixed value instead of basing it on quality count
+      Without quality mod there is only 1 quality and it caused the window to be very vertical
+
+---------------------------------------------------------------------------------------------------
 Version: 0.0.1
   Features:
     - Initial Release

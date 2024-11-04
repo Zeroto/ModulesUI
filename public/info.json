@@ -1,7 +1,8 @@
 {
   "name": "ModulesUI",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "title": "Modules UI",
   "author": "Zerot",
-  "factorio_version": "2.0"
+  "factorio_version": "2.0",
+  "description": "Shows available modules in your logistics network"
 }
