@@ -1,5 +1,5 @@
 {
-  "name": "signalui",
+  "name": "modulesui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,8 @@
     "build:public": "cpx public/**/*.* dist",
     "copy": "cpx dist/**/* C:/dev/factorio/Factorio_2.0.13/mods/ModulesUI"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sander Homan",
+  "license": "MIT",
   "dependencies": {
     "typed-factorio": "^3.0.1"
   },
