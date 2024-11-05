@@ -36,7 +36,7 @@ styles['ModulesUISlot_QualityFlow'] = {
 }
 styles['ModulesUISlot_QualityFlow_Indicator'] = {
   type: "image_style",
-  size: 15,
+  size: 13,
   stretch_image_to_widget_size: true
 }
 
@@ -51,5 +51,4 @@ styles['ModulesUIHeader'] = {
   parent: "draggable_space",
   horizontally_stretchable: "on",
   vertically_stretchable: "on",
-
 }

@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.3
+  Features:
+    - Add tier filtering
+    - Filter settings are now hidden by default. Added button to title bar of frame to toggle visibility of filter settings
+    - Added close button to frame
+    - Added element tooltip with item information
+    - Added available number tooltip so that the available count is readable when having high numbers
+  Fix:
+    - Performance
+      Changed how it updates the button causing a big performance increase
+      Values are now updated once per 60 ticks or when moving around
+
+---------------------------------------------------------------------------------------------------
 Version: 0.0.2
   Fix:
     - make column count fixed value instead of basing it on quality count
