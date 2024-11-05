@@ -215,7 +215,6 @@ script.on_event(defines.events.on_gui_click, ev => {
   const player = game.get_player(ev.player_index)
 
   if (ev.element.name === "ShowFilter") {
-    game.print("test")
     const elem = ev.element as ButtonGuiElement
     player.gui.screen['ModulesUI']['optionsContainer'].visible = elem.toggled
   }
