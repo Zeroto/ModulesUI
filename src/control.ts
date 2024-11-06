@@ -1,5 +1,5 @@
 
-import { ButtonGuiElement, CheckboxGuiElement, GuiLocation, LuaGuiElement, LuaLogisticNetwork, LuaPlayer, PlayerIndex, SpriteButtonGuiElement, SpriteButtonGuiElementMembers, TextFieldGuiElement } from "factorio:runtime";
+import { ButtonGuiElement, CheckboxGuiElement, GuiLocation, LuaGuiElement, LuaLogisticNetwork, LuaPlayer, LuaSpacePlatform, PlayerIndex, SpriteButtonGuiElement, SpriteButtonGuiElementMembers, TextFieldGuiElement } from "factorio:runtime";
 
 type Player = {
   HideBelowCount: number
@@ -103,7 +103,7 @@ function makeButton(parent: LuaGuiElement, item: ItemModule, quality?: string) {
   }
 }
 
-function updateCountButton(logistics: LuaLogisticNetwork, button: LuaGuiElement, hideBelowCount: number, hiddenTiers: number[])
+function updateCountButton(logistics: LuaLogisticNetwork, platform: LuaSpacePlatform, button: LuaGuiElement, hideBelowCount: number, hiddenTiers: number[])
 {
   const tags = button.tags
   if (hiddenTiers.indexOf(tags.tier as number) >= 0)
@@ -112,7 +112,7 @@ function updateCountButton(logistics: LuaLogisticNetwork, button: LuaGuiElement,
     return;
   }
 
-  const count = logistics.get_item_count({name: tags.item as string, quality: tags.quality as string});
+  const count = logistics?.get_item_count({name: tags.item as string, quality: tags.quality as string}) ?? platform.hub.get_inventory(defines.inventory.hub_main).get_item_count({name: tags.item as string, quality: tags.quality as string});
   if (count >= hideBelowCount)
   {
     const spriteButton = button as SpriteButtonGuiElement;
@@ -139,11 +139,12 @@ function tickPlayer(player: LuaPlayer) {
     const table = player.gui.screen['ModulesUI']['buttonsTable'];
     // detect location and find logistics network
     let logistics = player.force.find_logistic_network_by_position(player.position, player.surface)
-    if (logistics) {
+    let platform = player.surface.platform;
+    if (logistics || platform) {
       for (const [_, v] of pairs(table.children))
       {
           const element = v as LuaGuiElement
-          updateCountButton(logistics, element.children[0], playerInfo.HideBelowCount, playerInfo.HiddenTiers ?? [])
+          updateCountButton(logistics, platform, element.children[0], playerInfo.HideBelowCount, playerInfo.HiddenTiers ?? [])
       }
     }
     else

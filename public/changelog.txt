@@ -1,4 +1,8 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.5
+  Features:
+    - Add space platform support
+---------------------------------------------------------------------------------------------------
 Version: 0.0.4
   Fix:
     - Fix other mods shortcuts open the modules window. Thanks to Marco310 for the bugreport
