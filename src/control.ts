@@ -45,6 +45,9 @@ script.on_configuration_changed(ev => {
 })
 
 script.on_event(defines.events.on_lua_shortcut, data => {
+  if (data.prototype_name !== "ModulesUI-shortcut")
+    return;
+
   let player = game.get_player(data.player_index)
   let playerInfo = getPlayerInfo(data.player_index)
   let screenElement = player.gui.screen
